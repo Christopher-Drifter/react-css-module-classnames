@@ -1,10 +1,10 @@
 {
   "name": "react-css-module-classnames",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Terse className property for react css modules",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --require @babel/register"
   },
   "keywords": [
     "React",
@@ -12,5 +12,14 @@
     "Class Names"
   ],
   "author": "Christopher Drifter",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  }
 }
