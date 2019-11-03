@@ -1,6 +1,6 @@
 {
   "name": "react-css-module-classnames",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Terse className property for react css modules",
   "main": "./src/index.js",
   "scripts": {
