@@ -5,23 +5,14 @@ class ClassNameObject {
    * Constructor
    */
   constructor(...args) {
-    // constructor(name, styles)
+    // handle: constructor(name, styles)
+    // styles is a css module object, so styles[name] will hold the actual class name
     if (typeof args[0] === "string" && typeof args[1] === "object") {
       const [name, styles] = args;
-      this.className = concat(name, styles[name]);
+      args[1] = styles[name];
     }
 
-    // constructor(ClassNameObject)
-    else if (args[0] instanceof ClassNameObject) {
-      const [classNameObject] = args;
-
-      this.className = classNameObject.className;
-    }
-
-    // constructor(string1, string2, string3, ...)
-    else {
-      this.className = concat(...args);
-    }
+    this.className = concat(...args);
   }
 
   /**
@@ -40,7 +31,15 @@ class ClassNameObject {
  * concat
  */
 function concat(...names) {
-  return names.filter(name => typeof name === "string").join(" ");
+  return (
+    names
+      // convert ClassNameObjects to string
+      .map(name => (name instanceof ClassNameObject ? name.className : name))
+      // ignore non-string values
+      .filter(name => typeof name === "string")
+      // concat with spaces
+      .join(" ")
+  );
 }
 
 /**

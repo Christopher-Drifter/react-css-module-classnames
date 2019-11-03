@@ -25,6 +25,18 @@ describe("index test", () => {
     });
   });
 
+  describe("classNames(classNameObject1, string2, classNameObject3, string4)", () => {
+    it("should return `string1 string2 string3 string4`", () => {
+      const { className } = classNames(
+        classNames("string1"),
+        "string2",
+        classNames("string3"),
+        "string4"
+      );
+      expect(className).to.equal("string1 string2 string3 string4");
+    });
+  });
+
   describe("classNames(...).plus(...)", () => {
     it("should return `string1 string2 string3`", () => {
       const { className } = classNames("string1", "string2").plus("string3");
