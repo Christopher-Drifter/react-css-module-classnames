@@ -45,6 +45,6 @@ function concat(...names) {
 /**
  * classNames
  */
-export default function classNames(...args) {
+module.exports = function classNames(...args) {
   return new ClassNameObject(...args);
-}
+};
